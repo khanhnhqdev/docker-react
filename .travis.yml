@@ -1,0 +1,10 @@
+language: generic
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t khanhnhqdev/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run khanhnhqdev/docker-react npm runt test -- --coverage
